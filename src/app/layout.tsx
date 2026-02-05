@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import ZaloFloatingButton from "@/components/ZaloFloatingButton";
+import dynamic from "next/dynamic";
+
+const Header = dynamic(() => import("@/components/Header"), { ssr: true });
+const ZaloFloatingButton = dynamic(
+  () => import("@/components/ZaloFloatingButton"),
+  { ssr: false }
+);
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
-  preload: true,
 });
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700"],
   display: "swap",
-  preload: true,
 });
 
 export const metadata: Metadata = {

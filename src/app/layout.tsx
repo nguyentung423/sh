@@ -28,12 +28,21 @@ export const metadata: Metadata = {
     locale: "vi_VN",
     siteName: "PREMIUMSHOP",
     url: "https://premiumshop.tech",
+    images: [
+      {
+        url: "/logo.png",
+        width: 2000,
+        height: 2000,
+        alt: "PREMIUMSHOP Logo",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "PREMIUMSHOP",
     description:
       "Slot ChatGPT Business – Chỉ 50k/30 ngày – Trial miễn phí 7 ngày – Bảo hành thay slot nếu die",
+    images: ["/logo.png"],
   },
   robots: {
     index: true,

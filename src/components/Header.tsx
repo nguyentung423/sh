@@ -16,11 +16,12 @@ export default function Header() {
               href="/"
               className="flex items-center gap-1.5 md:gap-3 flex-shrink-0"
             >
-              <div className="relative w-16 h-16 md:w-20 md:h-20">
+              <div className="relative w-12 h-12 md:w-14 md:h-14">
                 <Image
-                  src="/Cream and Brown Minimalist Furniture Logo.svg"
+                  src="/logo.png"
                   alt="PremiumShop Logo"
-                  fill
+                  width={56}
+                  height={56}
                   className="object-contain"
                   priority
                 />

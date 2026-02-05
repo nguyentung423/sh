@@ -10,33 +10,9 @@ import {
   Settings,
   Sparkles,
 } from "lucide-react";
-import { motion, type Variants } from "framer-motion";
 import HeroSection from "./HeroSection";
 
 export default function HomePage() {
-  const stepContainer: Variants = {
-    hidden: { opacity: 0, y: 24 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        staggerChildren: 0.12,
-        duration: 0.5,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-
-  const stepItem: Variants = {
-    hidden: { opacity: 0, y: 14, scale: 0.96 },
-    show: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.35, ease: "easeOut" as const },
-    },
-  };
-
   const steps = [
     {
       title: "1. Gửi Email Chính Chủ",
@@ -413,23 +389,11 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <motion.div
-                className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto"
-                variants={stepContainer}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.25 }}
-              >
+              <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
                 {steps.map(({ title, desc, icon: Icon, accent, glow }, idx) => (
-                  <motion.div
+                  <div
                     key={title}
-                    variants={stepItem}
-                    whileHover={{
-                      y: -6,
-                      scale: 1.01,
-                      transition: { duration: 0.2 },
-                    }}
-                    className="group relative overflow-hidden rounded-xl border border-slate-700/40 bg-slate-900/60 backdrop-blur-xl p-5 md:p-6 shadow-lg"
+                    className="group relative overflow-hidden rounded-xl border border-slate-700/40 bg-slate-900/60 backdrop-blur-xl p-5 md:p-6 shadow-lg transition-transform duration-200 hover:-translate-y-1.5"
                   >
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-emerald-500/8 via-transparent to-emerald-500/15" />
                     <div
@@ -454,9 +418,9 @@ export default function HomePage() {
                         {desc}
                       </p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
-              </motion.div>
+              </div>
 
               <div className="text-center mt-8 text-slate-400 text-xs md:text-sm">
                 🔒 Bảo mật tuyệt đối – Chỉ cần Email, không bao giờ hỏi mật

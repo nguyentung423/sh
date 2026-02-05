@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   keywords:
     "chatgpt business, slot chatgpt, mua chatgpt giá rẻ, netflix premium, youtube premium, spotify premium, midjourney, canva pro",
   icons: {
-    icon: "/Cream and Brown Minimalist Furniture Logo (2).svg",
-    apple: "/Cream and Brown Minimalist Furniture Logo (2).svg",
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
     title: "PremiumShop - Slot Premium Giá Rẻ Từ 50k",

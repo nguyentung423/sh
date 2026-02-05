@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import dynamic from "next/dynamic";
+import Header from "@/components/Header";
 
-const Header = dynamic(() => import("@/components/Header"), { ssr: true });
 const ZaloFloatingButton = dynamic(
   () => import("@/components/ZaloFloatingButton"),
   { ssr: false },
@@ -12,7 +12,7 @@ const ZaloFloatingButton = dynamic(
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
 });
 
 export const metadata: Metadata = {

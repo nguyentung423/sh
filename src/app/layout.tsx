@@ -1,24 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import dynamic from "next/dynamic";
 
 const Header = dynamic(() => import("@/components/Header"), { ssr: true });
 const ZaloFloatingButton = dynamic(
   () => import("@/components/ZaloFloatingButton"),
-  { ssr: false }
+  { ssr: false },
 );
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["600", "700"],
   display: "swap",
 });
 
@@ -53,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="vi" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-white text-dark-900`}
+        className={`${inter.variable} font-sans antialiased bg-white text-dark-900`}
         suppressHydrationWarning={true}
       >
         <Header />

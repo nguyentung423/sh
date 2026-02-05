@@ -16,16 +16,14 @@ export default function Header() {
               href="/"
               className="flex items-center gap-1.5 md:gap-3 flex-shrink-0"
             >
-              <div className="relative w-12 h-12 md:w-14 md:h-14">
-                <Image
-                  src="/logo.png"
-                  alt="PremiumShop Logo"
-                  width={56}
-                  height={56}
-                  className="object-contain"
-                  priority
-                />
-              </div>
+              <Image
+                src="/logo.png"
+                alt="PremiumShop Logo"
+                width={48}
+                height={48}
+                className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                priority
+              />
               <span className="font-bold text-lg tracking-tight text-white">
                 PremiumShop
               </span>

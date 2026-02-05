@@ -16,21 +16,29 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PremiumShop - Mua Slot ChatGPT Business, Netflix, YouTube Giá Rẻ 50k",
+  metadataBase: new URL("https://premiumshop.tech"),
+  title: "PREMIUMSHOP - Slot ChatGPT Business",
   description:
-    "Cung cấp slot premium ChatGPT Business, Netflix, YouTube, Spotify, Midjourney với giá rẻ nhất từ 50k/tháng. Trial miễn phí 7 ngày, bảo hành 100%.",
-  keywords:
-    "chatgpt business, slot chatgpt, mua chatgpt giá rẻ, netflix premium, youtube premium, spotify premium, midjourney, canva pro",
+    "Chỉ 50k/30 ngày – Trial miễn phí 7 ngày. Bảo hành thay slot nếu die. Chat Zalo ngay để nhận!",
+  keywords: "chatgpt business, slot chatgpt, mua chatgpt giá rẻ, premium slot",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
   },
   openGraph: {
-    title: "PremiumShop - Slot Premium Giá Rẻ Từ 50k",
+    title: "PREMIUMSHOP",
     description:
-      "ChatGPT Business, Netflix, YouTube Premium & nhiều hơn nữa. Trial miễn phí 7 ngày!",
+      "Slot ChatGPT Business\nChỉ 50k/30 ngày – Trial miễn phí 7 ngày\nBảo hành thay slot nếu die\nChat Zalo ngay để nhận!",
     type: "website",
     locale: "vi_VN",
+    siteName: "PREMIUMSHOP",
+    url: "https://premiumshop.tech",
+  },
+  twitter: {
+    card: "summary",
+    title: "PREMIUMSHOP",
+    description:
+      "Slot ChatGPT Business – Chỉ 50k/30 ngày – Trial miễn phí 7 ngày – Bảo hành thay slot nếu die",
   },
   robots: {
     index: true,

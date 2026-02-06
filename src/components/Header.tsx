@@ -3,8 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SiZalo } from "react-icons/si";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function Header() {
+  const handleZaloClick = () => {
+    sendGAEvent("event", "click_zalo_final", {
+      location: "header",
+    });
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Ultra-Premium Floating Glass Strip */}
@@ -16,14 +23,16 @@ export default function Header() {
               href="/"
               className="flex items-center gap-1.5 md:gap-3 flex-shrink-0"
             >
-              <Image
-                src="/logo.png"
-                alt="PremiumShop Logo"
-                width={48}
-                height={48}
-                className="w-10 h-10 md:w-12 md:h-12 object-contain"
-                priority
-              />
+              <div className="relative w-12 h-12 md:w-14 md:h-14">
+                <Image
+                  src="/logo.png"
+                  alt="PremiumShop Logo"
+                  width={56}
+                  height={56}
+                  className="object-contain"
+                  priority
+                />
+              </div>
               <span className="font-bold text-lg tracking-tight text-white">
                 PremiumShop
               </span>
@@ -35,6 +44,7 @@ export default function Header() {
                 href="https://zalo.me/0374918396"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleZaloClick}
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-semibold px-4 py-2 md:px-5 md:py-2.5 rounded-lg md:rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/25"
               >
                 <SiZalo className="w-4 h-4 md:w-5 md:h-5" />

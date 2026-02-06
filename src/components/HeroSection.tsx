@@ -57,9 +57,8 @@ export default function HeroSection() {
   const handleZaloClick = async () => {
     const shortcode = SHORTCODES[selectedPlan] || "MUA_GPT_50K";
 
-    // Track GA4 event
-    sendGAEvent("event", "click_zalo_cta", {
-      location: "hero_button",
+    // Track GA4 event - Step 1: User shows interest
+    sendGAEvent("event", "begin_zalo_flow", {
       plan: selectedPlan,
       shortcode: shortcode,
     });
@@ -81,9 +80,8 @@ export default function HeroSection() {
   };
 
   const openZalo = () => {
-    // Track GA4 event when user confirms opening Zalo
-    sendGAEvent("event", "click_zalo_cta", {
-      location: "modal_popup",
+    // Track GA4 event - Step 2: User confirms opening Zalo (Final action)
+    sendGAEvent("event", "click_zalo_final", {
       plan: selectedPlan,
     });
 

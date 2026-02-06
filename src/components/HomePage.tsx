@@ -10,9 +10,16 @@ import {
   Settings,
   Sparkles,
 } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
 import HeroSection from "./HeroSection";
 
 export default function HomePage() {
+  const handleSection2Click = () => {
+    sendGAEvent("event", "click_zalo_final", {
+      location: "section2_comparison",
+    });
+  };
+
   const steps = [
     {
       title: "1. Gửi Email Chính Chủ",
@@ -286,6 +293,7 @@ export default function HomePage() {
               href="https://zalo.me/0374918396"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleSection2Click}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/25 transition-all duration-300"
             >
               <SiZalo className="w-5 h-5" />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import ZaloFloatingButton from "@/components/ZaloFloatingButton";
@@ -65,6 +66,7 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
         <ZaloFloatingButton />
       </body>
+      <GoogleAnalytics gaId="G-ZFVHPMV3MD" />
     </html>
   );
 }

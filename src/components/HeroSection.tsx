@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { SiZalo, SiOpenai } from "react-icons/si";
 import { FaStar, FaShieldAlt, FaCheck } from "react-icons/fa";
+import { sendGAEvent } from "@next/third-parties/google";
 import { ZALO_CONFIG, getZaloLink } from "@/data/products";
 
 // Pricing options - 3 options including Trial
@@ -40,10 +41,55 @@ const pricingOptions = [
   },
 ];
 
+// Shortcode mapping
+const SHORTCODES: Record<string, string> = {
+  trial: "DK_TRIAL",
+  "1month": "MUA_GPT_50K",
+  "3month": "MUA_GPT_135K",
+};
+
 export default function HeroSection() {
   const [selectedPlan, setSelectedPlan] = useState("1month");
+  const [showModal, setShowModal] = useState(false);
 
   const selectedOption = pricingOptions.find((opt) => opt.id === selectedPlan);
+
+  const handleZaloClick = async () => {
+    const shortcode = SHORTCODES[selectedPlan] || "MUA_GPT_50K";
+
+    // Track GA4 event
+    sendGAEvent("event", "click_zalo_cta", {
+      location: "hero_button",
+      plan: selectedPlan,
+      shortcode: shortcode,
+    });
+
+    try {
+      await navigator.clipboard.writeText(shortcode);
+    } catch {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = shortcode;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+    }
+
+    // Show modal (NOT auto-redirect)
+    setShowModal(true);
+  };
+
+  const openZalo = () => {
+    // Track GA4 event when user confirms opening Zalo
+    sendGAEvent("event", "click_zalo_cta", {
+      location: "modal_popup",
+      plan: selectedPlan,
+    });
+
+    window.open("https://zalo.me/0374918396", "_blank");
+    setShowModal(false);
+  };
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-slate-950 flex items-center justify-center snap-start">
@@ -232,15 +278,99 @@ export default function HeroSection() {
               </div>
 
               {/* Main CTA Button - Pulsing Shadow */}
-              <a
-                href="https://zalo.me/0374918396"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold text-lg py-4 rounded-xl shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:shadow-[0_0_50px_rgba(16,185,129,0.6)] transition-all duration-300 animate-pulse-glow"
+              <button
+                onClick={handleZaloClick}
+                className={`w-full flex items-center justify-center gap-3 text-white font-bold text-lg py-4 rounded-xl transition-all duration-300 cursor-pointer ${
+                  selectedPlan === "trial"
+                    ? "bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 shadow-[0_0_30px_rgba(249,115,22,0.4)] hover:shadow-[0_0_50px_rgba(249,115,22,0.6)]"
+                    : "bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:shadow-[0_0_50px_rgba(16,185,129,0.6)] animate-pulse-glow"
+                }`}
               >
                 <SiZalo className="w-6 h-6" />
-                <span>MUA NGAY - HOTLINE</span>
-              </a>
+                <span>
+                  {selectedPlan === "trial"
+                    ? "Đăng ký dùng thử"
+                    : "MUA NGAY - HOTLINE"}
+                </span>
+              </button>
+
+              {/* Confirmation Modal - Bottom Sheet on Mobile */}
+              {showModal && (
+                <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center">
+                  {/* Backdrop */}
+                  <div
+                    className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                    onClick={() => setShowModal(false)}
+                  />
+
+                  {/* Modal Content - Bottom sheet on mobile, centered on desktop */}
+                  <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 border-t sm:border border-emerald-500/30 rounded-t-3xl sm:rounded-2xl p-6 pb-8 sm:p-8 w-full sm:max-w-sm shadow-2xl shadow-emerald-500/20 animate-slide-up sm:animate-fade-in safe-bottom">
+                    {/* Drag Handle - Mobile only */}
+                    <div className="flex justify-center mb-4 sm:hidden">
+                      <div className="w-12 h-1.5 bg-slate-600 rounded-full" />
+                    </div>
+
+                    {/* Close button - Desktop only */}
+                    <button
+                      onClick={() => setShowModal(false)}
+                      className="hidden sm:block absolute top-3 right-3 text-slate-500 hover:text-white transition-colors"
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+
+                    {/* Success Icon */}
+                    <div className="flex justify-center mb-4">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                        <FaCheck className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" />
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg sm:text-xl font-bold text-white text-center mb-2">
+                      Đã copy mã kích hoạt!
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-slate-400 text-sm text-center mb-5 sm:mb-6 leading-relaxed">
+                      Vui lòng{" "}
+                      <span className="text-amber-400 font-semibold">
+                        Dán (Paste)
+                      </span>{" "}
+                      vào khung chat Zalo để nhân viên hỗ trợ ngay
+                    </p>
+
+                    {/* CTA Button - Larger touch target on mobile */}
+                    <button
+                      onClick={openZalo}
+                      className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 active:from-blue-600 active:to-blue-700 text-white font-bold text-base sm:text-lg py-4 sm:py-4 rounded-xl shadow-lg shadow-blue-500/30 transition-all duration-150 active:scale-[0.98]"
+                    >
+                      <SiZalo className="w-6 h-6" />
+                      <span>Mở Zalo ngay</span>
+                      <span className="text-lg">➔</span>
+                    </button>
+
+                    {/* Hint - Mã code */}
+                    <p className="text-slate-500 text-xs text-center mt-4">
+                      Mã của bạn:{" "}
+                      <span className="text-emerald-400 font-mono font-bold">
+                        {SHORTCODES[selectedPlan]}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              )}
 
               {/* Micro-Trust (Replacing Testimonials) */}
               <div className="mt-3 text-center">

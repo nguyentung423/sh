@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import ZaloFloatingButton from "@/components/ZaloFloatingButton";
+import WelcomeModal from "@/components/WelcomeModal";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -65,6 +66,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <ZaloFloatingButton />
+        <WelcomeModal />
       </body>
       <GoogleAnalytics gaId="G-ZFVHPMV3MD" />
     </html>

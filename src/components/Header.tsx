@@ -2,16 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { SiZalo } from "react-icons/si";
-import { sendGAEvent } from "@next/third-parties/google";
 
 export default function Header() {
-  const handleZaloClick = () => {
-    sendGAEvent("event", "click_zalo_final", {
-      location: "header",
-    });
-  };
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Ultra-Premium Floating Glass Strip */}
@@ -38,18 +30,14 @@ export default function Header() {
               </span>
             </Link>
 
-            {/* Right - Chat Action Button */}
+            {/* Right - LinkedIn Premium Link */}
             <div className="flex items-center">
-              <a
-                href="https://zalo.me/0374918396"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleZaloClick}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-semibold px-4 py-2 md:px-5 md:py-2.5 rounded-lg md:rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/25"
+              <Link
+                href="/linkedin-premium"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0077B5] to-[#00A0DC] hover:from-[#005E93] hover:to-[#0077B5] text-white font-semibold px-4 py-2 md:px-5 md:py-2.5 rounded-lg md:rounded-xl transition-all duration-300 shadow-lg shadow-[#0077B5]/25"
               >
-                <SiZalo className="w-4 h-4 md:w-5 md:h-5" />
-                <span className="text-sm md:text-base">Mua Ngay</span>
-              </a>
+                <span className="text-sm md:text-base">LinkedIn Premium</span>
+              </Link>
             </div>
           </div>
         </div>

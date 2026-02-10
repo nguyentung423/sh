@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/Header";
 import ZaloFloatingButton from "@/components/ZaloFloatingButton";
-
-// Lazy load modal - not needed for initial render (saves ~5-10KB)
-const WelcomeModal = dynamic(() => import("@/components/WelcomeModal"), {
-  ssr: false,
-});
+import ClientModals from "@/components/ClientModals";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -71,7 +66,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <ZaloFloatingButton />
-        <WelcomeModal />
+        <ClientModals />
       </body>
       <GoogleAnalytics gaId="G-06X9BX4Y2W" />
     </html>

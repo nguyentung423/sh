@@ -114,7 +114,7 @@ export default function LinkedInPremiumPage() {
               {/* Hero Image */}
               <div className="relative mb-10 rounded-2xl overflow-hidden shadow-xl shadow-[#0077B5]/10">
                 <Image
-                  src="/unnamed (1).png"
+                  src="/h.svg"
                   alt="LinkedIn Premium Career"
                   width={600}
                   height={400}

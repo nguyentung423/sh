@@ -19,8 +19,11 @@ export default function LinkedInPremiumPage() {
   const handleCtaClick = async () => {
     const shortcode = "MUA_LINKEDIN_12T";
 
+    // Step 1: Track begin_zalo_flow with LinkedIn-specific parameters
     sendGAEvent("event", "begin_zalo_flow", {
-      plan: "linkedin_premium_12m",
+      plan: "linkedin_premium_1year",
+      value: 690000,
+      currency: "VND",
       shortcode,
     });
 
@@ -39,9 +42,11 @@ export default function LinkedInPremiumPage() {
   };
 
   const openZalo = () => {
+    // Step 2: Track click_zalo_final with LinkedIn-specific parameters
     sendGAEvent("event", "click_zalo_final", {
-      location: "linkedin_modal",
-      plan: "linkedin_premium_12m",
+      plan: "linkedin_premium_1year",
+      value: 690000,
+      currency: "VND",
     });
     window.open("https://zalo.me/0374918396", "_blank");
     setShowModal(false);
@@ -119,6 +124,7 @@ export default function LinkedInPremiumPage() {
                   width={600}
                   height={400}
                   className="w-full h-auto rounded-2xl"
+                  priority
                 />
               </div>
 

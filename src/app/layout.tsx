@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/Header";
 import ZaloFloatingButton from "@/components/ZaloFloatingButton";
-import WelcomeModal from "@/components/WelcomeModal";
+
+// Lazy load modal - not needed for initial render (saves ~5-10KB)
+const WelcomeModal = dynamic(() => import("@/components/WelcomeModal"), {
+  ssr: false,
+});
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  display: "optional",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -68,7 +73,7 @@ export default function RootLayout({
         <ZaloFloatingButton />
         <WelcomeModal />
       </body>
-      <GoogleAnalytics gaId="G-ZFVHPMV3MD" />
+      <GoogleAnalytics gaId="G-06X9BX4Y2W" />
     </html>
   );
 }

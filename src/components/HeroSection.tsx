@@ -10,14 +10,14 @@ import { ZALO_CONFIG, getZaloLink } from "@/data/products";
 const pricingOptions = [
   {
     id: "trial",
-    name: "Trial 7 Ngày",
+    name: "Trial 5 Ngày",
     price: "0",
     priceLabel: "0",
     note: "Dùng thử miễn phí",
     badge: "Hot",
     badgeStyle: "trial",
     getMessage: () =>
-      ZALO_CONFIG.getTrialMessage("ChatGPT Plus GPT-5.2 - Trial 7 Ngày"),
+      ZALO_CONFIG.getTrialMessage("ChatGPT Plus GPT-5.2 - Trial 5 Ngày"),
   },
   {
     id: "1month",

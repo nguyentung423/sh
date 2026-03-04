@@ -30,13 +30,13 @@ export default function Header() {
               </span>
             </Link>
 
-            {/* Right - LinkedIn Premium Link */}
+            {/* Right - Google AI Pro Link */}
             <div className="flex items-center">
               <Link
-                href="/linkedin-premium"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0077B5] to-[#00A0DC] hover:from-[#005E93] hover:to-[#0077B5] text-white font-semibold px-4 py-2 md:px-5 md:py-2.5 rounded-lg md:rounded-xl transition-all duration-300 shadow-lg shadow-[#0077B5]/25"
+                href="/gemini-pro"
+                className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white/80 hover:text-white font-medium px-4 py-2 md:px-5 md:py-2.5 rounded-lg md:rounded-xl transition-all duration-300"
               >
-                <span className="text-sm md:text-base">LinkedIn Premium</span>
+                <span className="text-sm md:text-base">Google AI Pro</span>
               </Link>
             </div>
           </div>

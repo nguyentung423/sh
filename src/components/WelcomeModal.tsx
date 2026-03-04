@@ -30,7 +30,7 @@ export default function WelcomeModal() {
       className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-300"
       onClick={handleBackdropClick}
     >
-      <div className="relative w-full max-w-md bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 border border-amber-500/40 rounded-2xl shadow-2xl shadow-amber-500/10 animate-in zoom-in-95 duration-300">
+      <div className="relative w-full max-w-md bg-[#0f0f12] border border-white/10 rounded-2xl shadow-2xl animate-in zoom-in-95 duration-300">
         {/* Close Button */}
         <button
           onClick={handleClose}
@@ -55,38 +55,36 @@ export default function WelcomeModal() {
         {/* Content */}
         <div className="p-6 pt-8 text-center">
           {/* Icon */}
-          <div className="text-5xl mb-4">🎁</div>
+          <div className="text-4xl mb-4">🚀</div>
 
           {/* Headline */}
-          <h2 className="text-xl md:text-2xl font-bold bg-linear-to-r from-amber-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent mb-3">
-            🔥 ƯU ĐÃI ĐỘC QUYỀN 🔥
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
+            Google AI Pro cho Sinh viên
           </h2>
 
           {/* Main Text */}
-          <p className="text-white font-semibold text-lg mb-1">
-            Săn LinkedIn Premium Chính Chủ
+          <p className="text-white/60 text-sm mb-1">
+            Gemini 3.1 + Veo Video + 2TB Storage
           </p>
-          <p className="text-white font-semibold text-lg mb-4">
-            Giá Sinh Viên Cực Tốt
+          <p className="text-white/60 text-sm mb-4">
+            Cân mọi deadline - Chấp hết bài tập
           </p>
 
           {/* Highlight Sub-text */}
-          <div className="inline-block bg-[rgba(255,193,7,0.1)] border border-[#FFC107] rounded-lg px-4 py-2.5 mb-6">
-            <p className="text-amber-400 font-medium text-sm">
-              🎁 Tặng ngay ChatGPT Plus
-            </p>
-            <p className="text-white/90 font-medium text-sm">
-              Dành cho 20 đơn đầu tiên!
+          <div className="inline-block bg-green-500/10 border border-green-500/20 rounded-lg px-4 py-2.5 mb-6">
+            <p className="text-green-400 font-bold text-lg">Chỉ 50k/tháng</p>
+            <p className="text-white/50 text-xs">
+              Giá gốc 475k → Tiết kiệm 89%
             </p>
           </div>
 
           {/* CTA Button */}
           <Link
-            href="/linkedin-premium"
+            href="/gemini-pro"
             onClick={handleClose}
-            className="block w-full py-3.5 px-6 bg-linear-to-r from-amber-500 via-yellow-500 to-amber-500 hover:from-amber-400 hover:via-yellow-400 hover:to-amber-400 text-slate-900 font-bold text-base rounded-xl transition-all duration-300 shadow-lg shadow-amber-500/25"
+            className="block w-full py-3.5 px-6 bg-linear-to-r from-blue-500 via-green-500 to-emerald-500 hover:from-blue-600 hover:via-green-600 hover:to-emerald-600 text-white font-semibold text-sm rounded-xl transition-all duration-300"
           >
-            XEM CHI TIẾT NGAY &gt;
+            Xem chi tiết gói Pro
           </Link>
 
           {/* Dismiss text */}

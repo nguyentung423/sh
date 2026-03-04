@@ -34,9 +34,10 @@ const pricingOptions = [
     name: "Gói 3 Tháng",
     price: "135.000",
     priceLabel: "135k",
-    note: "Tiết kiệm 10%",
-    badge: "-10%",
-    badgeStyle: "discount",
+    note: "Tạm ngưng bán",
+    badge: "Hết hàng",
+    badgeStyle: "disabled",
+    disabled: true,
     getMessage: () => ZALO_CONFIG.getMessage("ChatGPT Plus GPT-5.2 - 3 Tháng"),
   },
 ];
@@ -187,14 +188,16 @@ export default function HeroSection() {
                 {pricingOptions.map((option) => (
                   <label
                     key={option.id}
-                    className={`relative flex items-center justify-between px-3 py-2.5 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
-                      selectedPlan === option.id
-                        ? option.id === "trial"
-                          ? "border-orange-500/60 bg-orange-500/10 shadow-[0_0_15px_rgba(249,115,22,0.2)] ring-1 ring-orange-500/20"
-                          : "border-emerald-500 bg-emerald-500/15 shadow-[0_0_20px_rgba(16,185,129,0.25)] ring-2 ring-emerald-500/20"
-                        : option.id === "trial"
-                          ? "border-slate-700/40 bg-slate-800/20 hover:border-orange-500/30 hover:bg-orange-500/5"
-                          : "border-slate-700/50 bg-slate-800/30 hover:border-slate-600/50 hover:bg-slate-800/50"
+                    className={`relative flex items-center justify-between px-3 py-2.5 rounded-xl border-2 transition-all duration-200 ${
+                      option.disabled
+                        ? "cursor-not-allowed opacity-50 border-slate-700/30 bg-slate-800/20"
+                        : selectedPlan === option.id
+                          ? option.id === "trial"
+                            ? "cursor-pointer border-orange-500/60 bg-orange-500/10 shadow-[0_0_15px_rgba(249,115,22,0.2)] ring-1 ring-orange-500/20"
+                            : "cursor-pointer border-emerald-500 bg-emerald-500/15 shadow-[0_0_20px_rgba(16,185,129,0.25)] ring-2 ring-emerald-500/20"
+                          : option.id === "trial"
+                            ? "cursor-pointer border-slate-700/40 bg-slate-800/20 hover:border-orange-500/30 hover:bg-orange-500/5"
+                            : "cursor-pointer border-slate-700/50 bg-slate-800/30 hover:border-slate-600/50 hover:bg-slate-800/50"
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
@@ -229,7 +232,9 @@ export default function HeroSection() {
                                   ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-900"
                                   : option.badgeStyle === "trial"
                                     ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
-                                    : "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                                    : option.badgeStyle === "disabled"
+                                      ? "bg-slate-600/30 text-slate-400 border border-slate-500/30"
+                                      : "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
                               }`}
                             >
                               {option.badge}
@@ -268,7 +273,10 @@ export default function HeroSection() {
                       name="pricing"
                       value={option.id}
                       checked={selectedPlan === option.id}
-                      onChange={() => setSelectedPlan(option.id)}
+                      onChange={() =>
+                        !option.disabled && setSelectedPlan(option.id)
+                      }
+                      disabled={option.disabled}
                       className="sr-only"
                     />
                   </label>

@@ -494,8 +494,8 @@ export const testimonials = [
     avatar: "/images/avatar-1.png",
     rating: 5,
     comment:
-      "Dùng ChatGPT Plus được 3 tháng rồi, GPT-4o nhanh và chính xác cực kỳ. Tiết kiệm được cả triệu so với mua gốc!",
-    product: "ChatGPT Plus",
+      "Dùng ChatGPT Business được 3 tháng rồi, GPT-4o nhanh và chính xác cực kỳ. Tiết kiệm được cả triệu so với mua gốc!",
+    product: "ChatGPT Business",
   },
   {
     id: 2,
@@ -504,7 +504,7 @@ export const testimonials = [
     rating: 5,
     comment:
       "DALL-E 3 vẽ ảnh đẹp quá! Shop hỗ trợ nhiệt tình, có vấn đề là đổi slot ngay. 10 điểm!",
-    product: "ChatGPT Plus",
+    product: "ChatGPT Business",
   },
   {
     id: 3,
@@ -513,7 +513,7 @@ export const testimonials = [
     rating: 5,
     comment:
       "Code Interpreter giúp mình xử lý data Excel nhanh gấp 10 lần. Đã giới thiệu cho cả team.",
-    product: "ChatGPT Plus",
+    product: "ChatGPT Business",
   },
   {
     id: 4,
@@ -521,8 +521,8 @@ export const testimonials = [
     avatar: "/images/avatar-4.png",
     rating: 5,
     comment:
-      "Trial 7 ngày free rồi mua luôn gói 3 tháng. ChatGPT Plus xịn quá, không thể thiếu!",
-    product: "ChatGPT Plus",
+      "Trial 7 ngày free rồi mua luôn gói 3 tháng. ChatGPT Business xịn quá, không thể thiếu!",
+    product: "ChatGPT Business",
   },
 ];
 

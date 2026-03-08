@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { SiZalo, SiOpenai } from "react-icons/si";
-import { FaStar, FaShieldAlt, FaCheck } from "react-icons/fa";
+import { FaShieldAlt, FaCheck } from "react-icons/fa";
 import { sendGAEvent } from "@next/third-parties/google";
 import { ZALO_CONFIG, getZaloLink } from "@/data/products";
+import TransactionModal from "./TransactionModal";
 
 // Pricing options - 3 options including Trial
 const pricingOptions = [
@@ -17,7 +18,7 @@ const pricingOptions = [
     badge: "Hot",
     badgeStyle: "trial",
     getMessage: () =>
-      ZALO_CONFIG.getTrialMessage("ChatGPT Plus GPT-5.2 - Trial 5 Ngày"),
+      ZALO_CONFIG.getTrialMessage("ChatGPT Business GPT-5.4 - Trial 5 Ngày"),
   },
   {
     id: "1month",
@@ -27,7 +28,8 @@ const pricingOptions = [
     note: null,
     badge: "Best Seller",
     badgeStyle: "best",
-    getMessage: () => ZALO_CONFIG.getMessage("ChatGPT Plus GPT-5.2 - 1 Tháng"),
+    getMessage: () =>
+      ZALO_CONFIG.getMessage("ChatGPT Business GPT-5.4 - 1 Tháng"),
   },
   {
     id: "3month",
@@ -38,7 +40,8 @@ const pricingOptions = [
     badge: "Hết hàng",
     badgeStyle: "disabled",
     disabled: true,
-    getMessage: () => ZALO_CONFIG.getMessage("ChatGPT Plus GPT-5.2 - 3 Tháng"),
+    getMessage: () =>
+      ZALO_CONFIG.getMessage("ChatGPT Business GPT-5.4 - 3 Tháng"),
   },
 ];
 
@@ -109,7 +112,7 @@ export default function HeroSection() {
               <span className="block text-white font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
                 Trải Nghiệm{" "}
                 <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(6,182,212,0.5)]">
-                  GPT-5.2
+                  GPT-5.4
                 </span>
               </span>
               <span className="block text-white font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mt-1">
@@ -175,7 +178,7 @@ export default function HeroSection() {
                     Chọn Gói
                   </h3>
                   <p className="text-slate-400 text-sm">
-                    ChatGPT Plus - GPT-5.2
+                    ChatGPT Business - GPT-5.4
                   </p>
                 </div>
                 <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center">
@@ -378,13 +381,9 @@ export default function HeroSection() {
                 </div>
               )}
 
-              {/* Micro-Trust (Replacing Testimonials) */}
+              {/* Transaction History Trigger */}
               <div className="mt-3 text-center">
-                <p className="text-slate-400 text-xs flex items-center justify-center gap-1">
-                  <FaStar className="w-3 h-3 text-amber-400" />
-                  <span className="text-white font-medium">50+</span> khách hàng
-                  đã đăng ký hôm nay
-                </p>
+                <TransactionModal />
               </div>
 
               {/* Trust Icons */}

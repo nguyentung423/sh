@@ -391,10 +391,11 @@ export default function HeroSection() {
                 </div>
               )}
 
-              {/* Transaction History Trigger */}
-              <div className="mt-3 text-center">
-                <TransactionModal />
-              </div>
+              {!affiliate.isAffiliate && (
+                <div className="mt-3 text-center">
+                  <TransactionModal />
+                </div>
+              )}
 
               {/* Trust Icons */}
               <div className="mt-3 pt-3 border-t border-slate-700/50 flex items-center justify-center gap-4 text-slate-500 text-xs">

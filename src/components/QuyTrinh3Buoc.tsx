@@ -1,35 +1,46 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, Phone, Video } from "lucide-react";
 import Image from "next/image";
-
-const messages = [
-  {
-    side: "right" as const,
-    text: "MUA_GPT_50K",
-  },
-  {
-    side: "left" as const,
-    text: (
-      <>
-        Chào bạn 👋 Để nâng cấp, bạn gửi shop{" "}
-        <span className="font-semibold text-white">ĐỊA CHỈ EMAIL</span> nhé (Cam
-        kết KHÔNG cần mật khẩu). Hệ thống sẽ kích hoạt ngay trong 1 phút! ⚡
-      </>
-    ),
-  },
-  {
-    side: "right" as const,
-    text: "premiumshop@gmail.com",
-  },
-  {
-    side: "left" as const,
-    text: "Đã nâng cấp xong gói Business! ✅ Bạn đăng nhập check OK rồi mới cần chuyển khoản 50k nhé.",
-  },
-];
+import { useSearchParams } from "next/navigation";
+import { resolveAffiliate } from "@/lib/affiliate";
 
 export default function QuyTrinh3Buoc() {
+  const searchParams = useSearchParams();
+  const affiliate = resolveAffiliate(searchParams.get("ref"));
+  const shortcode = affiliate.isAffiliate ? "MUA_GPT_70K" : "MUA_GPT_50K";
+  const transferLabel = `${Math.round(affiliate.monthlyPrice / 1000)}k`;
+
+  const messages = useMemo(
+    () => [
+      {
+        side: "right" as const,
+        text: shortcode,
+      },
+      {
+        side: "left" as const,
+        text: (
+          <>
+            Chào bạn 👋 Để nâng cấp, bạn gửi shop{" "}
+            <span className="font-semibold text-white">ĐỊA CHỈ EMAIL</span> nhé
+            (Cam kết KHÔNG cần mật khẩu). Hệ thống sẽ kích hoạt ngay trong 1
+            phút! ⚡
+          </>
+        ),
+      },
+      {
+        side: "right" as const,
+        text: "premiumshop@gmail.com",
+      },
+      {
+        side: "left" as const,
+        text: `Đã nâng cấp xong gói Business! ✅ Bạn đăng nhập check OK rồi mới cần chuyển khoản ${transferLabel} nhé.`,
+      },
+    ],
+    [shortcode, transferLabel],
+  );
+
   const sectionRef = useRef<HTMLElement>(null);
   const [visibleCount, setVisibleCount] = useState(0);
 
@@ -52,7 +63,7 @@ export default function QuyTrinh3Buoc() {
 
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
-  }, []);
+  }, [messages]);
 
   return (
     <section ref={sectionRef} className="bg-[#0a0f1a] py-20 lg:py-28">

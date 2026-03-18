@@ -7,7 +7,7 @@ import { SiZalo } from "react-icons/si";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { resolveAffiliate } from "@/lib/affiliate";
+import { formatVnd, resolveAffiliate } from "@/lib/affiliate";
 
 // Feature data for the 6 Pillars
 const features = [
@@ -79,6 +79,8 @@ export default function GeminiProPage() {
   const searchParams = useSearchParams();
   const ref = searchParams.get("ref");
   const affiliate = resolveAffiliate(ref);
+  const monthlyPrice = affiliate.monthlyPrice;
+  const monthlyPriceLabel = `${formatVnd(monthlyPrice)}đ`;
   const homeHref = ref ? `/?ref=${ref}` : "/";
   const [showModal, setShowModal] = useState(false);
 
@@ -87,7 +89,7 @@ export default function GeminiProPage() {
 
     sendGAEvent("event", "begin_zalo_flow", {
       plan: "google_ai_pro",
-      value: 50000,
+      value: monthlyPrice,
       currency: "VND",
       shortcode,
     });
@@ -109,7 +111,7 @@ export default function GeminiProPage() {
   const openZalo = () => {
     sendGAEvent("event", "click_zalo_final", {
       plan: "google_ai_pro",
-      value: 50000,
+      value: monthlyPrice,
       currency: "VND",
     });
     window.open(affiliate.zaloLink, "_blank");
@@ -288,7 +290,7 @@ export default function GeminiProPage() {
                     </div>
                     <div className="flex items-baseline justify-center gap-1">
                       <span className="text-5xl md:text-6xl font-black text-transparent bg-linear-to-r from-green-400 to-emerald-400 bg-clip-text drop-shadow-[0_0_30px_rgba(34,197,94,0.4)]">
-                        50.000đ
+                        {monthlyPriceLabel}
                       </span>
                       <span className="text-white/40 text-lg">/ tháng</span>
                     </div>

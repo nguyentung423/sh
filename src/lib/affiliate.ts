@@ -11,8 +11,8 @@ const AFFILIATE_REF = "nhbn";
 
 const AFFILIATE = {
   ref: AFFILIATE_REF,
-  zaloLink: "https://zalo.me/0367171698",
-  monthlyPrice: 70000,
+  zaloLink: "https://zalo.me/0974370098",
+  monthlyPrice: 60000,
 };
 
 function normalizeRef(ref?: string | null): string {

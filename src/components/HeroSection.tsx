@@ -54,6 +54,12 @@ const SHORTCODES: Record<string, string> = {
   "3month": "MUA_GPT_135K",
 };
 
+const AFFILIATE_SHORTCODES: Record<string, string> = {
+  trial: "DK_TRIAL",
+  "1month": "MUA_GPT_60K",
+  "3month": "MUA_GPT_135K",
+};
+
 export default function HeroSection() {
   const searchParams = useSearchParams();
   const affiliate = resolveAffiliate(searchParams.get("ref"));
@@ -63,9 +69,12 @@ export default function HeroSection() {
   const monthlyPriceLabel = `${formatVnd(monthlyPrice)}đ`;
   const oldPrice = 799000;
   const savings = oldPrice - monthlyPrice;
+  const activeShortcodes = affiliate.isAffiliate
+    ? AFFILIATE_SHORTCODES
+    : SHORTCODES;
 
   const handleZaloClick = async () => {
-    const shortcode = SHORTCODES[selectedPlan] || "MUA_GPT_50K";
+    const shortcode = activeShortcodes[selectedPlan] || "MUA_GPT_50K";
 
     // Track GA4 event - Step 1: User shows interest
     sendGAEvent("event", "begin_zalo_flow", {
@@ -384,7 +393,7 @@ export default function HeroSection() {
                     <p className="text-slate-500 text-xs text-center mt-4">
                       Mã của bạn:{" "}
                       <span className="text-emerald-400 font-mono font-bold">
-                        {SHORTCODES[selectedPlan]}
+                        {activeShortcodes[selectedPlan]}
                       </span>
                     </p>
                   </div>

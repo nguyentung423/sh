@@ -9,7 +9,7 @@ import { resolveAffiliate } from "@/lib/affiliate";
 export default function QuyTrinh3Buoc() {
   const searchParams = useSearchParams();
   const affiliate = resolveAffiliate(searchParams.get("ref"));
-  const shortcode = affiliate.isAffiliate ? "MUA_GPT_70K" : "MUA_GPT_50K";
+  const shortcode = `MUA_GPT_${Math.round(affiliate.monthlyPrice / 1000)}K`;
   const transferLabel = `${Math.round(affiliate.monthlyPrice / 1000)}k`;
 
   const messages = useMemo(

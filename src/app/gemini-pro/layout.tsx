@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title:
@@ -22,5 +23,5 @@ export default function GeminiLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <Suspense fallback={null}>{children}</Suspense>;
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Suspense } from "react";
 import "./globals.css";
 import Header from "@/components/Header";
 import ZaloFloatingButton from "@/components/ZaloFloatingButton";
@@ -63,10 +64,16 @@ export default function RootLayout({
         className={`${inter.variable} font-sans antialiased bg-white text-dark-900`}
         suppressHydrationWarning={true}
       >
-        <Header />
+        <Suspense fallback={null}>
+          <Header />
+        </Suspense>
         <main className="min-h-screen">{children}</main>
-        <ZaloFloatingButton />
-        <ClientModals />
+        <Suspense fallback={null}>
+          <ZaloFloatingButton />
+        </Suspense>
+        <Suspense fallback={null}>
+          <ClientModals />
+        </Suspense>
       </body>
       <GoogleAnalytics gaId="G-06X9BX4Y2W" />
     </html>

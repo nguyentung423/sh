@@ -3,11 +3,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { formatVnd, resolveAffiliate } from "@/lib/affiliate";
 
 export default function WelcomeModal() {
   const [isOpen, setIsOpen] = useState(false);
   const searchParams = useSearchParams();
   const ref = searchParams.get("ref");
+  const affiliate = resolveAffiliate(ref);
+  const originalPrice = 475000;
+  const monthlyPrice = affiliate.monthlyPrice;
+  const savingsPercent = Math.round((1 - monthlyPrice / originalPrice) * 100);
   const geminiHref = ref ? `/gemini-pro?ref=${ref}` : "/gemini-pro";
 
   useEffect(() => {
@@ -76,9 +81,11 @@ export default function WelcomeModal() {
 
           {/* Highlight Sub-text */}
           <div className="inline-block bg-green-500/10 border border-green-500/20 rounded-lg px-4 py-2.5 mb-6">
-            <p className="text-green-400 font-bold text-lg">Chỉ 50k/tháng</p>
+            <p className="text-green-400 font-bold text-lg">
+              Chỉ {formatVnd(monthlyPrice)}đ/tháng
+            </p>
             <p className="text-white/50 text-xs">
-              Giá gốc 475k → Tiết kiệm 89%
+              Giá gốc {formatVnd(originalPrice)}đ → Tiết kiệm {savingsPercent}%
             </p>
           </div>
 

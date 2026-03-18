@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { SiZalo, SiOpenai } from "react-icons/si";
 import { FaShieldAlt, FaCheck } from "react-icons/fa";
 import { sendGAEvent } from "@next/third-parties/google";
-import { ZALO_CONFIG, getZaloLink } from "@/data/products";
+import { ZALO_CONFIG } from "@/data/products";
+import { formatVnd, resolveAffiliate } from "@/lib/affiliate";
 import TransactionModal from "./TransactionModal";
 
 // Pricing options - 3 options including Trial
@@ -53,10 +55,14 @@ const SHORTCODES: Record<string, string> = {
 };
 
 export default function HeroSection() {
+  const searchParams = useSearchParams();
+  const affiliate = resolveAffiliate(searchParams.get("ref"));
   const [selectedPlan, setSelectedPlan] = useState("1month");
   const [showModal, setShowModal] = useState(false);
-
-  const selectedOption = pricingOptions.find((opt) => opt.id === selectedPlan);
+  const monthlyPrice = affiliate.monthlyPrice;
+  const monthlyPriceLabel = `${formatVnd(monthlyPrice)}đ`;
+  const oldPrice = 799000;
+  const savings = oldPrice - monthlyPrice;
 
   const handleZaloClick = async () => {
     const shortcode = SHORTCODES[selectedPlan] || "MUA_GPT_50K";
@@ -89,7 +95,7 @@ export default function HeroSection() {
       plan: selectedPlan,
     });
 
-    window.open("https://zalo.me/0374918396", "_blank");
+    window.open(affiliate.zaloLink, "_blank");
     setShowModal(false);
   };
 
@@ -135,7 +141,7 @@ export default function HeroSection() {
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-slate-500 text-sm">Giá gốc:</span>
                 <span className="text-red-400/80 text-lg line-through decoration-red-500/50 decoration-2">
-                  799.000đ/tháng
+                  {formatVnd(oldPrice)}đ/tháng
                 </span>
               </div>
 
@@ -144,7 +150,7 @@ export default function HeroSection() {
                 <div className="flex-1">
                   <div className="flex items-baseline gap-2">
                     <span className="text-4xl sm:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-400 via-green-400 to-amber-400 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(16,185,129,0.4)]">
-                      50.000đ
+                      {monthlyPriceLabel}
                     </span>
                     <span className="text-slate-400 text-lg">/tháng</span>
                   </div>
@@ -162,8 +168,10 @@ export default function HeroSection() {
               {/* Savings Text */}
               <p className="text-emerald-400/80 text-sm mt-3 flex items-center gap-1">
                 <span>✨</span> Tiết kiệm{" "}
-                <span className="font-bold text-emerald-300">749.000đ</span> mỗi
-                tháng
+                <span className="font-bold text-emerald-300">
+                  {formatVnd(savings)}đ
+                </span>{" "}
+                mỗi tháng
               </p>
             </div>
           </div>
@@ -264,8 +272,10 @@ export default function HeroSection() {
                     >
                       {option.priceLabel === "0"
                         ? "Miễn phí"
-                        : option.priceLabel}
-                      {option.priceLabel !== "0" && (
+                        : option.id === "1month"
+                          ? monthlyPriceLabel
+                          : option.priceLabel}
+                      {option.priceLabel !== "0" && option.id !== "1month" && (
                         <span className="text-slate-500 text-xs font-normal">
                           đ
                         </span>

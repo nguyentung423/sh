@@ -6,6 +6,8 @@ import { FaCheck, FaShieldAlt, FaBolt, FaGraduationCap } from "react-icons/fa";
 import { SiZalo } from "react-icons/si";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { resolveAffiliate } from "@/lib/affiliate";
 
 // Feature data for the 6 Pillars
 const features = [
@@ -74,6 +76,10 @@ const features = [
 ];
 
 export default function GeminiProPage() {
+  const searchParams = useSearchParams();
+  const ref = searchParams.get("ref");
+  const affiliate = resolveAffiliate(ref);
+  const homeHref = ref ? `/?ref=${ref}` : "/";
   const [showModal, setShowModal] = useState(false);
 
   const handleCtaClick = async () => {
@@ -106,7 +112,7 @@ export default function GeminiProPage() {
       value: 50000,
       currency: "VND",
     });
-    window.open("https://zalo.me/0374918396", "_blank");
+    window.open(affiliate.zaloLink, "_blank");
     setShowModal(false);
   };
 
@@ -429,7 +435,7 @@ export default function GeminiProPage() {
 
             <div className="flex items-center gap-6">
               <Link
-                href="/"
+                href={homeHref}
                 className="text-white/30 hover:text-white/50 text-sm transition-colors"
               >
                 Trang Chủ

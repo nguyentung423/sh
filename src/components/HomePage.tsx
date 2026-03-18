@@ -5,8 +5,13 @@ import TransactionModal from "./TransactionModal";
 import ComparisonSection from "./ComparisonSection";
 import CamKetUytinSection from "./CamKetUytinSection";
 import QuyTrinh3Buoc from "./QuyTrinh3Buoc";
+import { useSearchParams } from "next/navigation";
+import { resolveAffiliate } from "@/lib/affiliate";
 
 export default function HomePage() {
+  const searchParams = useSearchParams();
+  const affiliate = resolveAffiliate(searchParams.get("ref"));
+
   return (
     <main className="min-h-screen">
       {/* SECTION 1: Hero - The Instant Buy Engine */}
@@ -34,7 +39,7 @@ export default function HomePage() {
           <p className="text-slate-500 text-sm">
             © 2026 PremiumShop. Hỗ trợ khách hàng 24/7 qua{" "}
             <a
-              href="https://zalo.me/0374918396"
+              href={affiliate.zaloLink}
               target="_blank"
               rel="noopener noreferrer"
               className="text-emerald-400 hover:text-emerald-300"

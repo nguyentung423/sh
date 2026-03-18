@@ -2,9 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 export default function WelcomeModal() {
   const [isOpen, setIsOpen] = useState(false);
+  const searchParams = useSearchParams();
+  const ref = searchParams.get("ref");
+  const geminiHref = ref ? `/gemini-pro?ref=${ref}` : "/gemini-pro";
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -80,7 +84,7 @@ export default function WelcomeModal() {
 
           {/* CTA Button */}
           <Link
-            href="/gemini-pro"
+            href={geminiHref}
             onClick={handleClose}
             className="block w-full py-3.5 px-6 bg-linear-to-r from-blue-500 via-green-500 to-emerald-500 hover:from-blue-600 hover:via-green-600 hover:to-emerald-600 text-white font-semibold text-sm rounded-xl transition-all duration-300"
           >

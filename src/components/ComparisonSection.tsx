@@ -1,6 +1,8 @@
 "use client";
 
 import { sendGAEvent } from "@next/third-parties/google";
+import { useSearchParams } from "next/navigation";
+import { formatVnd, resolveAffiliate } from "@/lib/affiliate";
 
 const freeFeatures = [
   "Giới hạn lượt xử lý, thường xuyên bị gián đoạn giữa chừng.",
@@ -19,6 +21,9 @@ const businessFeatures = [
 ];
 
 export default function ComparisonSection() {
+  const searchParams = useSearchParams();
+  const affiliate = resolveAffiliate(searchParams.get("ref"));
+
   return (
     <section className="bg-[#0a0f1a] py-20 md:py-28">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,12 +113,12 @@ export default function ComparisonSection() {
               </div>
               <p className="mt-1">
                 <span className="text-4xl font-extrabold text-white">
-                  Chỉ 50.000đ
+                  Chỉ {formatVnd(affiliate.monthlyPrice)}đ
                 </span>
                 <span className="text-sm text-gray-400">/tháng</span>
               </p>
               <a
-                href="https://zalo.me/0374918396"
+                href={affiliate.zaloLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
@@ -123,7 +128,8 @@ export default function ComparisonSection() {
                 }
                 className="mt-2 w-full inline-flex items-center justify-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl text-lg transition-all shadow-lg"
               >
-                Nâng Cấp Ngay - 50k/Tháng
+                Nâng Cấp Ngay - {Math.round(affiliate.monthlyPrice / 1000)}
+                k/Tháng
               </a>
               <p className="text-xs text-green-400 text-center mt-3">
                 ✅ Kích hoạt trong 5 phút - Bảo hành 1 đổi 1

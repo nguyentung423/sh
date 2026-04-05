@@ -6,7 +6,7 @@ export interface AffiliateContext {
 }
 
 export const DEFAULT_ZALO_LINK = "https://zalo.me/0374918396";
-const DEFAULT_MONTHLY_PRICE = 50000;
+const DEFAULT_MONTHLY_PRICE = 70000;
 const AFFILIATE_REF = "nhbn";
 
 const AFFILIATE = {

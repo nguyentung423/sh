@@ -41,8 +41,8 @@ export const products: Product[] = [
     shortName: "ChatGPT",
     category: "ai-tools",
     categoryName: "AI Tools",
-    price: 50000,
-    priceLabel: "50k",
+    price: 70000,
+    priceLabel: "70k",
     originalPrice: 625000,
     duration: "30 ngày",
     image: "/images/chatgpt-hero.png",
@@ -71,7 +71,7 @@ export const products: Product[] = [
     pricing: [
       {
         name: "Basic",
-        price: 50000,
+        price: 70000,
         duration: "30 ngày",
         features: [
           "Slot chia sẻ trong team",

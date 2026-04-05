@@ -25,8 +25,8 @@ const pricingOptions = [
   {
     id: "1month",
     name: "Gói 1 Tháng",
-    price: "50.000",
-    priceLabel: "50k",
+    price: "70.000",
+    priceLabel: "70k",
     note: null,
     badge: "Best Seller",
     badgeStyle: "best",
@@ -50,7 +50,7 @@ const pricingOptions = [
 // Shortcode mapping
 const SHORTCODES: Record<string, string> = {
   trial: "DK_TRIAL",
-  "1month": "MUA_GPT_50K",
+  "1month": "MUA_GPT_70K",
   "3month": "MUA_GPT_135K",
 };
 
@@ -74,7 +74,7 @@ export default function HeroSection() {
     : SHORTCODES;
 
   const handleZaloClick = async () => {
-    const shortcode = activeShortcodes[selectedPlan] || "MUA_GPT_50K";
+    const shortcode = activeShortcodes[selectedPlan] || "MUA_GPT_70K";
 
     // Track GA4 event - Step 1: User shows interest
     sendGAEvent("event", "begin_zalo_flow", {

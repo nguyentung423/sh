@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description:
     "Chỉ 70k/30 ngày – Trial miễn phí 7 ngày. Bảo hành thay slot nếu die. Chat Zalo ngay để nhận!",
   keywords: "chatgpt plus, slot chatgpt, mua chatgpt giá rẻ, premium slot",
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",

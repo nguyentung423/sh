@@ -333,6 +333,33 @@ export default function HeroSection() {
               chính chủ. Nhanh hơn, Thông minh hơn.
             </p>
 
+            <div className="flex flex-wrap gap-2 mb-5 md:mb-8 text-xs sm:text-sm">
+              <a
+                href="#comparison"
+                className="text-cyan-300/90 hover:text-cyan-200 underline decoration-cyan-500/40 underline-offset-4"
+              >
+                Xem so sánh gói
+              </a>
+              <a
+                href="#commitment"
+                className="text-emerald-300/90 hover:text-emerald-200 underline decoration-emerald-500/40 underline-offset-4"
+              >
+                Cam kết bảo hành
+              </a>
+              <a
+                href="#process"
+                className="text-amber-300/90 hover:text-amber-200 underline decoration-amber-500/40 underline-offset-4"
+              >
+                Quy trình kích hoạt
+              </a>
+              <a
+                href="#faq"
+                className="text-sky-300/90 hover:text-sky-200 underline decoration-sky-500/40 underline-offset-4"
+              >
+                FAQ ChatGPT Plus
+              </a>
+            </div>
+
             {/* ====== PRICE SLASH LAYOUT ====== */}
             <div className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-slate-900/90 to-slate-800/50 border border-slate-700/50 backdrop-blur-sm">
               {/* Old Price - Strikethrough */}

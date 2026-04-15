@@ -26,7 +26,10 @@ export default function ComparisonSection() {
   const affiliate = resolveAffiliate(searchParams.get("ref"));
 
   return (
-    <section className="relative overflow-hidden bg-[#0a0f1a] py-20 md:py-28">
+    <section
+      id="comparison"
+      className="relative overflow-hidden bg-[#0a0f1a] py-20 md:py-28"
+    >
       <NeuralNetworkBackground nodeCount={70} />
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}

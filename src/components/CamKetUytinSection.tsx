@@ -32,7 +32,10 @@ const commitments = [
 
 export default function CamKetUytinSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0a0f1a] py-20 lg:py-28">
+    <section
+      id="commitment"
+      className="relative overflow-hidden bg-[#0a0f1a] py-20 lg:py-28"
+    >
       <NeuralNetworkBackground nodeCount={72} />
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

@@ -69,6 +69,7 @@ export default function QuyTrinh3Buoc() {
   return (
     <section
       ref={sectionRef}
+      id="process"
       className="relative overflow-hidden bg-[#0a0f1a] py-20 lg:py-28"
     >
       <NeuralNetworkBackground nodeCount={68} />

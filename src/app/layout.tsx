@@ -15,10 +15,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://premiumshop.tech"),
-  title: "PREMIUMSHOP - Slot ChatGPT Business",
+  title: "PREMIUMSHOP - Slot ChatGPT Plus",
   description:
     "Chỉ 70k/30 ngày – Trial miễn phí 7 ngày. Bảo hành thay slot nếu die. Chat Zalo ngay để nhận!",
-  keywords: "chatgpt business, slot chatgpt, mua chatgpt giá rẻ, premium slot",
+  keywords: "chatgpt plus, slot chatgpt, mua chatgpt giá rẻ, premium slot",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PREMIUMSHOP",
     description:
-      "Slot ChatGPT Business\nChỉ 70k/30 ngày – Trial miễn phí 7 ngày\nBảo hành thay slot nếu die\nChat Zalo ngay để nhận!",
+      "Slot ChatGPT Plus\nChỉ 70k/30 ngày – Trial miễn phí 7 ngày\nBảo hành thay slot nếu die\nChat Zalo ngay để nhận!",
     type: "website",
     locale: "vi_VN",
     siteName: "PREMIUMSHOP",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PREMIUMSHOP",
     description:
-      "Slot ChatGPT Business – Chỉ 70k/30 ngày – Trial miễn phí 7 ngày – Bảo hành thay slot nếu die",
+      "Slot ChatGPT Plus – Chỉ 70k/30 ngày – Trial miễn phí 7 ngày – Bảo hành thay slot nếu die",
     images: ["/logo.png"],
   },
   robots: {

@@ -3,6 +3,7 @@
 import { sendGAEvent } from "@next/third-parties/google";
 import { useSearchParams } from "next/navigation";
 import { formatVnd, resolveAffiliate } from "@/lib/affiliate";
+import NeuralNetworkBackground from "./NeuralNetworkBackground";
 
 const freeFeatures = [
   "Giới hạn lượt xử lý, thường xuyên bị gián đoạn giữa chừng.",
@@ -12,7 +13,7 @@ const freeFeatures = [
   "Hỗ trợ viết báo cáo, CV hoặc debug code chỉ ở mức độ bề mặt.",
 ];
 
-const businessFeatures = [
+const plusFeatures = [
   "Trải nghiệm mô hình AI thông minh nhất với khả năng suy luận (Reasoning) chuyên sâu.",
   "Dung lượng xử lý cao, đảm bảo mạch làm việc liên tục, không đứt đoạn.",
   "Xử lý mượt mà tài liệu phức tạp, báo cáo dài và phân tích dữ liệu chuyên nghiệp.",
@@ -25,8 +26,9 @@ export default function ComparisonSection() {
   const affiliate = resolveAffiliate(searchParams.get("ref"));
 
   return (
-    <section className="bg-[#0a0f1a] py-20 md:py-28">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[#0a0f1a] py-20 md:py-28">
+      <NeuralNetworkBackground nodeCount={70} />
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white">
@@ -77,7 +79,7 @@ export default function ComparisonSection() {
             </div>
           </div>
 
-          {/* Card 2: ChatGPT Business */}
+          {/* Card 2: ChatGPT Plus */}
           <div className="relative rounded-2xl bg-[#0f172a] border border-green-500 shadow-[0_0_30px_rgba(16,185,129,0.15)] p-6 md:p-8 flex flex-col h-full">
             {/* Badge */}
             <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
@@ -85,12 +87,12 @@ export default function ComparisonSection() {
             </span>
 
             <h3 className="text-2xl font-bold bg-gradient-to-r from-green-400 to-cyan-500 bg-clip-text text-transparent mt-2 mb-6">
-              GPT Business (Khuyên dùng)
+              GPT Plus (Khuyên dùng)
             </h3>
 
             <div className="flex-1">
               <ul className="space-y-4">
-                {businessFeatures.map((feat) => (
+                {plusFeatures.map((feat) => (
                   <li key={feat} className="flex items-start gap-3">
                     <span className="mt-0.5 text-green-400 text-sm font-bold shrink-0">
                       ✓

@@ -5,6 +5,7 @@ import { ChevronLeft, Phone, Video } from "lucide-react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { resolveAffiliate } from "@/lib/affiliate";
+import NeuralNetworkBackground from "./NeuralNetworkBackground";
 
 export default function QuyTrinh3Buoc() {
   const searchParams = useSearchParams();
@@ -35,7 +36,7 @@ export default function QuyTrinh3Buoc() {
       },
       {
         side: "left" as const,
-        text: `Đã nâng cấp xong gói Business! ✅ Bạn đăng nhập check OK rồi mới cần chuyển khoản ${transferLabel} nhé.`,
+        text: `Đã nâng cấp xong gói Plus! ✅ Bạn đăng nhập check OK rồi mới cần chuyển khoản ${transferLabel} nhé.`,
       },
     ],
     [shortcode, transferLabel],
@@ -66,8 +67,12 @@ export default function QuyTrinh3Buoc() {
   }, [messages]);
 
   return (
-    <section ref={sectionRef} className="bg-[#0a0f1a] py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-[#0a0f1a] py-20 lg:py-28"
+    >
+      <NeuralNetworkBackground nodeCount={68} />
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Headers */}
         <h2 className="text-3xl font-bold text-center text-white">
           Quy Trình Nâng Cấp Tự Động

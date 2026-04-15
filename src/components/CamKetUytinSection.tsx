@@ -1,6 +1,7 @@
 "use client";
 
 import { Handshake, ShieldCheck, Lock } from "lucide-react";
+import NeuralNetworkBackground from "./NeuralNetworkBackground";
 
 const commitments = [
   {
@@ -31,8 +32,9 @@ const commitments = [
 
 export default function CamKetUytinSection() {
   return (
-    <section className="bg-[#0a0f1a] py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[#0a0f1a] py-20 lg:py-28">
+      <NeuralNetworkBackground nodeCount={72} />
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
           <p className="text-emerald-400 text-xs font-semibold uppercase tracking-[0.2em] mb-3">

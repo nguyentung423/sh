@@ -21,12 +21,12 @@ const pricingOptions = [
   },
   {
     id: "1month",
-    name: "ChatGPT Business GPT-5.4",
+    name: "ChatGPT Business GPT-5.5",
     price: 70000,
     note: "Tập trung AI chuyên sâu cho học tập và công việc • 1 tháng",
     badgeStyle: "best",
     getMessage: () =>
-      ZALO_CONFIG.getMessage("ChatGPT Business GPT-5.4 - 1 Tháng"),
+      ZALO_CONFIG.getMessage("ChatGPT Business GPT-5.5 - 1 Tháng"),
   },
   {
     id: "3month",
@@ -317,7 +317,7 @@ export default function HeroSection() {
               <span className="block text-white font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
                 Trải Nghiệm{" "}
                 <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(6,182,212,0.5)]">
-                  GPT-5.4
+                  GPT-5.5
                 </span>
               </span>
               <span className="block text-white font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mt-1">
@@ -417,7 +417,7 @@ export default function HeroSection() {
                       Chọn Gói
                     </h3>
                     <p className="text-slate-400 text-sm">
-                      ChatGPT Business - GPT-5.4
+                      ChatGPT Business - GPT-5.5
                     </p>
                   </div>
                   <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center shrink-0">

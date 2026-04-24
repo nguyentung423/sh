@@ -30,7 +30,7 @@ export default function HomePage() {
       <section id="faq" className="relative bg-[#0a0f1a] pb-20 pt-4">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-3">
-            Câu Hỏi Thường Gặp Về ChatGPT Plus
+            Câu Hỏi Thường Gặp Về ChatGPT Business
           </h2>
           <p className="text-slate-400 text-sm md:text-base text-center mb-8">
             Giải đáp nhanh các vấn đề khách hàng thường hỏi trước khi mua.

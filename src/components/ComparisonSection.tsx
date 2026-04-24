@@ -13,7 +13,7 @@ const freeFeatures = [
   "Hỗ trợ viết báo cáo, CV hoặc debug code chỉ ở mức độ bề mặt.",
 ];
 
-const plusFeatures = [
+const businessFeatures = [
   "Trải nghiệm mô hình AI thông minh nhất với khả năng suy luận (Reasoning) chuyên sâu.",
   "Dung lượng xử lý cao, đảm bảo mạch làm việc liên tục, không đứt đoạn.",
   "Xử lý mượt mà tài liệu phức tạp, báo cáo dài và phân tích dữ liệu chuyên nghiệp.",
@@ -82,7 +82,7 @@ export default function ComparisonSection() {
             </div>
           </div>
 
-          {/* Card 2: ChatGPT Plus */}
+          {/* Card 2: ChatGPT Business */}
           <div className="relative rounded-2xl bg-[#0f172a] border border-green-500 shadow-[0_0_30px_rgba(16,185,129,0.15)] p-6 md:p-8 flex flex-col h-full">
             {/* Badge */}
             <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
@@ -90,12 +90,12 @@ export default function ComparisonSection() {
             </span>
 
             <h3 className="text-2xl font-bold bg-gradient-to-r from-green-400 to-cyan-500 bg-clip-text text-transparent mt-2 mb-6">
-              GPT Plus (Khuyên dùng)
+              GPT Business (Khuyên dùng)
             </h3>
 
             <div className="flex-1">
               <ul className="space-y-4">
-                {plusFeatures.map((feat) => (
+                {businessFeatures.map((feat) => (
                   <li key={feat} className="flex items-start gap-3">
                     <span className="mt-0.5 text-green-400 text-sm font-bold shrink-0">
                       ✓

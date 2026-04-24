@@ -12,29 +12,30 @@ import { formatVnd, resolveAffiliate } from "@/lib/affiliate";
 const pricingOptions = [
   {
     id: "trial",
-    name: "ChatGPT Plus + Canva Pro",
+    name: "ChatGPT Business + Canva Pro",
     price: 100000,
     note: "AI + thiết kế cho học tập và sáng tạo • 1 tháng",
     badgeStyle: "trial",
     getMessage: () =>
-      ZALO_CONFIG.getMessage("ChatGPT Plus + Canva Pro - 1 Tháng"),
+      ZALO_CONFIG.getMessage("ChatGPT Business + Canva Pro - 1 Tháng"),
   },
   {
     id: "1month",
-    name: "ChatGPT Plus GPT-5.4",
+    name: "ChatGPT Business GPT-5.4",
     price: 70000,
     note: "Tập trung AI chuyên sâu cho học tập và công việc • 1 tháng",
     badgeStyle: "best",
-    getMessage: () => ZALO_CONFIG.getMessage("ChatGPT Plus GPT-5.4 - 1 Tháng"),
+    getMessage: () =>
+      ZALO_CONFIG.getMessage("ChatGPT Business GPT-5.4 - 1 Tháng"),
   },
   {
     id: "3month",
-    name: "ChatGPT Plus + Netflix 4K",
+    name: "ChatGPT Business + Netflix 4K",
     price: 110000,
     note: "AI làm việc + giải trí 4K sau giờ học • 1 tháng",
     badgeStyle: "best",
     getMessage: () =>
-      ZALO_CONFIG.getMessage("ChatGPT Plus + Netflix 4K - 1 Tháng"),
+      ZALO_CONFIG.getMessage("ChatGPT Business + Netflix 4K - 1 Tháng"),
   },
 ];
 
@@ -328,7 +329,7 @@ export default function HeroSection() {
             <p className="text-slate-300 text-sm md:text-base lg:text-lg leading-relaxed mb-5 md:mb-8 max-w-md">
               Tài khoản{" "}
               <span className="text-emerald-400 font-semibold">
-                ChatGPT Plus
+                ChatGPT Business
               </span>{" "}
               chính chủ. Nhanh hơn, Thông minh hơn.
             </p>
@@ -356,7 +357,7 @@ export default function HeroSection() {
                 href="#faq"
                 className="text-sky-300/90 hover:text-sky-200 underline decoration-sky-500/40 underline-offset-4"
               >
-                FAQ ChatGPT Plus
+                FAQ ChatGPT Business
               </a>
             </div>
 
@@ -416,7 +417,7 @@ export default function HeroSection() {
                       Chọn Gói
                     </h3>
                     <p className="text-slate-400 text-sm">
-                      ChatGPT Plus - GPT-5.4
+                      ChatGPT Business - GPT-5.4
                     </p>
                   </div>
                   <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center shrink-0">

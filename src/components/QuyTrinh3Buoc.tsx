@@ -36,7 +36,7 @@ export default function QuyTrinh3Buoc() {
       },
       {
         side: "left" as const,
-        text: `Đã nâng cấp xong gói Plus! ✅ Bạn đăng nhập check OK rồi mới cần chuyển khoản ${transferLabel} nhé.`,
+        text: `Đã nâng cấp xong gói Business! ✅ Bạn đăng nhập check OK rồi mới cần chuyển khoản ${transferLabel} nhé.`,
       },
     ],
     [shortcode, transferLabel],

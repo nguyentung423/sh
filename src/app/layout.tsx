@@ -15,10 +15,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://premiumshop.tech"),
-  title: "PREMIUMSHOP - Slot ChatGPT Plus",
+  applicationName: "PremiumShop",
+  title: "PremiumShop | Slot ChatGPT Business Giá Rẻ",
   description:
     "Chỉ 70k/30 ngày – Trial miễn phí 7 ngày. Bảo hành thay slot nếu die. Chat Zalo ngay để nhận!",
-  keywords: "chatgpt plus, slot chatgpt, mua chatgpt giá rẻ, premium slot",
+  keywords: "chatgpt business, slot chatgpt, mua chatgpt giá rẻ, premium slot",
   alternates: {
     canonical: "/",
   },
@@ -27,27 +28,27 @@ export const metadata: Metadata = {
     apple: "/logo.png",
   },
   openGraph: {
-    title: "PREMIUMSHOP",
+    title: "PremiumShop | Slot ChatGPT Business Giá Rẻ",
     description:
-      "Slot ChatGPT Plus\nChỉ 70k/30 ngày – Trial miễn phí 7 ngày\nBảo hành thay slot nếu die\nChat Zalo ngay để nhận!",
+      "Slot ChatGPT Business\nChỉ 70k/30 ngày – Trial miễn phí 7 ngày\nBảo hành thay slot nếu die\nChat Zalo ngay để nhận!",
     type: "website",
     locale: "vi_VN",
-    siteName: "PREMIUMSHOP",
+    siteName: "PremiumShop",
     url: "https://premiumshop.tech",
     images: [
       {
         url: "/logo.png",
         width: 2000,
         height: 2000,
-        alt: "PREMIUMSHOP Logo",
+        alt: "PremiumShop Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PREMIUMSHOP",
+    title: "PremiumShop | Slot ChatGPT Business Giá Rẻ",
     description:
-      "Slot ChatGPT Plus – Chỉ 70k/30 ngày – Trial miễn phí 7 ngày – Bảo hành thay slot nếu die",
+      "Slot ChatGPT Business – Chỉ 70k/30 ngày – Trial miễn phí 7 ngày – Bảo hành thay slot nếu die",
     images: ["/logo.png"],
   },
   robots: {

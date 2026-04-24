@@ -5,17 +5,17 @@ export type SeoFaq = {
 
 export const SEO_FAQS: SeoFaq[] = [
   {
-    question: "ChatGPT Plus tại PremiumShop giá bao nhiêu?",
+    question: "ChatGPT Business tại PremiumShop giá bao nhiêu?",
     answer:
-      "Hiện tại gói ChatGPT Plus tại PremiumShop có mức giá từ 70.000đ/tháng, ngoài ra có các gói combo theo nhu cầu học tập và giải trí.",
+      "Hiện tại gói ChatGPT Business tại PremiumShop có mức giá từ 70.000đ/tháng, ngoài ra có các gói combo theo nhu cầu học tập và giải trí.",
   },
   {
-    question: "Mua slot ChatGPT Plus có an toàn không?",
+    question: "Mua slot ChatGPT Business có an toàn không?",
     answer:
       "PremiumShop hỗ trợ theo quy trình rõ ràng: nâng cấp xong bạn kiểm tra trước, sau đó mới thanh toán. Shop cam kết hỗ trợ nhanh khi phát sinh sự cố.",
   },
   {
-    question: "Kích hoạt ChatGPT Plus mất bao lâu?",
+    question: "Kích hoạt ChatGPT Business mất bao lâu?",
     answer:
       "Thông thường quá trình kích hoạt diễn ra trong vài phút sau khi bạn gửi thông tin cần thiết qua Zalo.",
   },

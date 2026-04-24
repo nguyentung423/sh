@@ -6,32 +6,34 @@ import { SEO_FAQS } from "@/data/seo";
 const BASE_URL = "https://premiumshop.tech";
 
 export const metadata: Metadata = {
-  title: "Slot ChatGPT Plus Giá Rẻ | PremiumShop",
+  title: "PremiumShop | Slot ChatGPT Business Giá Rẻ",
   description:
-    "Mua slot ChatGPT Plus giá rẻ từ 70.000đ/tháng tại PremiumShop. Hỗ trợ kích hoạt nhanh, bảo hành 1 đổi 1 và tư vấn 24/7 qua Zalo.",
+    "Mua slot ChatGPT Business giá rẻ từ 70.000đ/tháng tại PremiumShop. Hỗ trợ kích hoạt nhanh, bảo hành 1 đổi 1 và tư vấn 24/7 qua Zalo.",
   keywords:
-    "slot chatgpt plus, mua chatgpt plus giá rẻ, chatgpt plus 70k, premiumshop",
+    "slot chatgpt business, mua chatgpt business giá rẻ, chatgpt business 70k, premiumshop",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Slot ChatGPT Plus Giá Rẻ | PremiumShop",
+    title: "PremiumShop | Slot ChatGPT Business Giá Rẻ",
     description:
-      "Giá từ 70.000đ/tháng, hỗ trợ kích hoạt nhanh và bảo hành 1 đổi 1. Mua ChatGPT Plus tại PremiumShop.",
+      "Giá từ 70.000đ/tháng, hỗ trợ kích hoạt nhanh và bảo hành 1 đổi 1. Mua ChatGPT Business tại PremiumShop.",
     url: BASE_URL,
     type: "website",
+    siteName: "PremiumShop",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Slot ChatGPT Plus Giá Rẻ | PremiumShop",
+    title: "PremiumShop | Slot ChatGPT Business Giá Rẻ",
     description:
-      "Mua slot ChatGPT Plus giá rẻ từ 70.000đ/tháng. Hỗ trợ nhanh, bảo hành rõ ràng.",
+      "Mua slot ChatGPT Business giá rẻ từ 70.000đ/tháng. Hỗ trợ nhanh, bảo hành rõ ràng.",
   },
 };
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${BASE_URL}/#organization`,
   name: "PremiumShop",
   url: BASE_URL,
   logo: `${BASE_URL}/logo.png`,
@@ -40,17 +42,22 @@ const organizationJsonLd = {
 const webSiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${BASE_URL}/#website`,
   name: "PremiumShop",
+  alternateName: "premiumshop.tech",
   url: BASE_URL,
   inLanguage: "vi-VN",
+  publisher: {
+    "@id": `${BASE_URL}/#organization`,
+  },
 };
 
 const productJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "Slot ChatGPT Plus",
+  name: "Slot ChatGPT Business",
   description:
-    "Dịch vụ nâng cấp ChatGPT Plus giá rẻ tại PremiumShop, hỗ trợ nhanh qua Zalo.",
+    "Dịch vụ nâng cấp ChatGPT Business giá rẻ tại PremiumShop, hỗ trợ nhanh qua Zalo.",
   brand: {
     "@type": "Brand",
     name: "OpenAI",

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://premiumshop.tech/gemini-pro",
     type: "website",
     locale: "vi_VN",
-    siteName: "PREMIUMSHOP",
+    siteName: "PremiumShop",
   },
 };
 
